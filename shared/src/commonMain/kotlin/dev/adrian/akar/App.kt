@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import dev.adrian.akar.component.button.AkarBottomActionBar
 import dev.adrian.akar.component.button.AkarButton
 import dev.adrian.akar.component.button.AkarFloatingActionButton
 import dev.adrian.akar.component.button.AkarIconButton
@@ -18,6 +19,7 @@ import dev.adrian.akar.component.button.AkarOutlinedButton
 import dev.adrian.akar.component.feedback.AkarIcon
 import dev.adrian.akar.component.feedback.AkarIconBox
 import dev.adrian.akar.component.layout.AkarScaffold
+import dev.adrian.akar.component.navigation.AkarAppBar
 import dev.adrian.akar.core.theme.AkarTheme
 import dev.adrian.akar.icon.AkarIcons
 
@@ -31,6 +33,35 @@ fun App() {
         icon = icon
     ) {
         AkarScaffold(
+            topBar = {
+                AkarAppBar(
+                    title = "Akar Design System",
+                    actions = {
+                        AkarIconButton(
+                            icon = AkarIcons.ReceiptLong,
+                            contentDescription = null,
+                            onClick = { }
+                        )
+                        AkarIconButton(
+                            icon = AkarIcons.Flag,
+                            contentDescription = null,
+                            onClick = { }
+                        )
+                        AkarIconButton(
+                            icon = AkarIcons.Settings,
+                            contentDescription = null,
+                            onClick = { }
+                        )
+                    },
+                    textColor = AkarTheme.colors.primary
+                )
+            },
+            bottomBar = {
+                AkarBottomActionBar(
+                    label = "Press me",
+                    onClick = { }
+                )
+            },
             floatingActionButton = {
                 AkarFloatingActionButton(
                     icon = AkarIcons.Add2,
