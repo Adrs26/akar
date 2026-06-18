@@ -45,6 +45,7 @@ kotlin {
             implementation(libs.compose.runtime)
             implementation(libs.compose.ui)
             implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.font.icons.core)
 
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.datetime)

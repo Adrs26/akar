@@ -21,10 +21,14 @@ import dev.adrian.akar.core.spacing.akarSpacing
 import dev.adrian.akar.core.typography.AkarTypography
 import dev.adrian.akar.core.typography.LocalAkarTypography
 import dev.adrian.akar.core.typography.akarTypography
+import dev.tclement.fonticons.LocalIconFont
+import dev.tclement.fonticons.LocalIconTint
+import dev.tclement.fonticons.VariableIconFont
 
 @Composable
 fun AkarTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
+    icon: VariableIconFont? = null,
     content: @Composable () -> Unit,
 ) {
     val akarColorScheme = if (darkTheme) akarDarkColorScheme else akarLightColorScheme
@@ -64,19 +68,38 @@ fun AkarTheme(
         labelSmall = akarTypography().labelSubtle
     )
 
-    CompositionLocalProvider(
-        LocalAkarColor provides akarColorScheme,
-        LocalAkarShape provides akarShape,
-        LocalAkarTypography provides akarTypography(),
-        LocalAkarSpacing provides akarSpacing
-    ) {
-        MaterialTheme(
-            colorScheme = materialColorScheme,
-            motionScheme = MaterialTheme.motionScheme,
-            shapes = MaterialTheme.shapes,
-            typography = materialTypography,
-            content = content
-        )
+    if (icon != null) {
+        CompositionLocalProvider(
+            LocalAkarColor provides akarColorScheme,
+            LocalAkarShape provides akarShape,
+            LocalAkarTypography provides akarTypography(),
+            LocalAkarSpacing provides akarSpacing,
+            LocalIconFont provides icon,
+            LocalIconTint provides akarColorScheme.onSurface
+        ) {
+            MaterialTheme(
+                colorScheme = materialColorScheme,
+                motionScheme = MaterialTheme.motionScheme,
+                shapes = MaterialTheme.shapes,
+                typography = materialTypography,
+                content = content
+            )
+        }
+    } else {
+        CompositionLocalProvider(
+            LocalAkarColor provides akarColorScheme,
+            LocalAkarShape provides akarShape,
+            LocalAkarTypography provides akarTypography(),
+            LocalAkarSpacing provides akarSpacing
+        ) {
+            MaterialTheme(
+                colorScheme = materialColorScheme,
+                motionScheme = MaterialTheme.motionScheme,
+                shapes = MaterialTheme.shapes,
+                typography = materialTypography,
+                content = content
+            )
+        }
     }
 }
 

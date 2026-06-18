@@ -1,11 +1,5 @@
 package dev.adrian.akar.core.typography
 
-import akar.core.generated.resources.Res
-import akar.core.generated.resources.plus_jakarta_sans_bold
-import akar.core.generated.resources.plus_jakarta_sans_extra_bold
-import akar.core.generated.resources.plus_jakarta_sans_medium
-import akar.core.generated.resources.plus_jakarta_sans_regular
-import akar.core.generated.resources.plus_jakarta_sans_semi_bold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -13,6 +7,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import dev.adrian.akar.core.generated.resources.Res
+import dev.adrian.akar.core.generated.resources.plus_jakarta_sans_bold
+import dev.adrian.akar.core.generated.resources.plus_jakarta_sans_extra_bold
+import dev.adrian.akar.core.generated.resources.plus_jakarta_sans_medium
+import dev.adrian.akar.core.generated.resources.plus_jakarta_sans_regular
+import dev.adrian.akar.core.generated.resources.plus_jakarta_sans_semi_bold
 import org.jetbrains.compose.resources.Font
 
 @Immutable
