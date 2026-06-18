@@ -39,6 +39,9 @@ kotlin {
             implementation(libs.compose.ui.tooling.preview)
         }
         commonMain.dependencies {
+            implementation(projects.component)
+            implementation(projects.icon)
+
             implementation(libs.compose.components.resources)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
