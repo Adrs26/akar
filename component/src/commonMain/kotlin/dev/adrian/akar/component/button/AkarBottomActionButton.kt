@@ -27,11 +27,11 @@ import dev.adrian.akar.core.theme.AkarTheme
 import kotlin.time.Clock
 
 @Composable
-fun AkarBottomActionBar(
+fun AkarBottomActionButton(
     label: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    style: AkarBottomActionBarStyle = AkarBottomActionBarStyle.Filled
+    style: AkarBottomActionButtonStyle = AkarBottomActionButtonStyle.Filled
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
@@ -54,7 +54,7 @@ fun AkarBottomActionBar(
     ) {
         AkarHorizontalDivider()
         when (style) {
-            AkarBottomActionBarStyle.Filled -> {
+            AkarBottomActionButtonStyle.Filled -> {
                 Button(
                     onClick = {
                         val currentTime = Clock.System.now().toEpochMilliseconds()
@@ -88,7 +88,7 @@ fun AkarBottomActionBar(
                     )
                 }
             }
-            AkarBottomActionBarStyle.Outlined -> {
+            AkarBottomActionButtonStyle.Outlined -> {
                 OutlinedButton(
                     onClick = {
                         val currentTime = Clock.System.now().toEpochMilliseconds()
@@ -130,6 +130,6 @@ fun AkarBottomActionBar(
     }
 }
 
-enum class AkarBottomActionBarStyle {
+enum class AkarBottomActionButtonStyle {
     Filled, Outlined
 }

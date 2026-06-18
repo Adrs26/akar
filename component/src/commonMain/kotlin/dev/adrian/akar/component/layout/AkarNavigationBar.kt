@@ -1,4 +1,4 @@
-package dev.adrian.akar.component.navigation
+package dev.adrian.akar.component.layout
 
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
