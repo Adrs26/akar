@@ -39,7 +39,10 @@ fun AkarIconBox(
             Box(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
-                    .offset(x = 4.dp, y = 4.dp)
+                    .offset(
+                        x = AkarTheme.spacing.micro,
+                        y = AkarTheme.spacing.micro
+                    )
             ) {
                 iconContent()
             }

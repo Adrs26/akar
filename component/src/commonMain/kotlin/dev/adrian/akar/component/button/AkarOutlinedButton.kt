@@ -2,10 +2,11 @@ package dev.adrian.akar.component.button
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
-import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -14,11 +15,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.unit.dp
 import dev.adrian.akar.core.theme.AkarTheme
 import kotlin.time.Clock
 
 @Composable
-fun AkarButton(
+fun AkarOutlinedButton(
     label: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -37,7 +39,7 @@ fun AkarButton(
         label = "AkarButtonScaleAnimation"
     )
 
-    Button(
+    OutlinedButton(
         onClick = {
             val currentTime = Clock.System.now().toEpochMilliseconds()
             if (currentTime - lastClickTime >= 700L) {
@@ -50,9 +52,13 @@ fun AkarButton(
             scaleY = scale
         },
         interactionSource = interactionSource,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = AkarTheme.colors.primary,
-            contentColor = AkarTheme.colors.onPrimary
+        colors = ButtonDefaults.outlinedButtonColors(
+            containerColor = AkarTheme.colors.surface,
+            contentColor = AkarTheme.colors.onSurface
+        ),
+        border = BorderStroke(
+            width = 1.dp,
+            color = AkarTheme.colors.outline
         )
     ) {
         Text(
