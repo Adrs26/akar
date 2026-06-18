@@ -20,6 +20,7 @@ import dev.adrian.akar.component.button.AkarOutlinedButton
 import dev.adrian.akar.component.feedback.AkarIcon
 import dev.adrian.akar.component.feedback.AkarIconBox
 import dev.adrian.akar.component.feedback.AkarLinearProgress
+import dev.adrian.akar.component.feedback.AkarSquircleProgress
 import dev.adrian.akar.component.layout.AkarAppBar
 import dev.adrian.akar.component.layout.AkarScaffold
 import dev.adrian.akar.core.theme.AkarTheme
@@ -112,6 +113,9 @@ fun App() {
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = AkarTheme.spacing.large)
+                    )
+                    AkarSquircleProgress(
+                        progress = 0.6f
                     )
                 }
             }
