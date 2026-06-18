@@ -49,11 +49,11 @@ fun AkarButton(
             scaleX = scale
             scaleY = scale
         },
-        interactionSource = interactionSource,
         colors = ButtonDefaults.buttonColors(
             containerColor = AkarTheme.colors.primary,
             contentColor = AkarTheme.colors.onPrimary
-        )
+        ),
+        interactionSource = interactionSource
     ) {
         Text(
             text = label,

@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.adrian.akar.component.button.AkarButton
+import dev.adrian.akar.component.button.AkarIconButton
 import dev.adrian.akar.component.button.AkarOutlinedButton
 import dev.adrian.akar.component.feedback.AkarIcon
 import dev.adrian.akar.component.feedback.AkarIconBox
@@ -52,6 +53,11 @@ fun App() {
                 )
                 AkarOutlinedButton(
                     label = "Press me",
+                    onClick = {  }
+                )
+                AkarIconButton(
+                    icon = AkarIcons.Settings,
+                    contentDescription = null,
                     onClick = {  }
                 )
             }
