@@ -1,4 +1,4 @@
-package dev.adrian.akar.component
+package dev.adrian.akar.component.layout
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
