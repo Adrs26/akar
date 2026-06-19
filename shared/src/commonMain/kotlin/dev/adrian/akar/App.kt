@@ -1,11 +1,8 @@
 package dev.adrian.akar
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.runtime.Composable
@@ -21,15 +18,17 @@ import dev.adrian.akar.component.button.AkarButton
 import dev.adrian.akar.component.button.AkarFloatingActionButton
 import dev.adrian.akar.component.button.AkarIconButton
 import dev.adrian.akar.component.button.AkarOutlinedButton
-import dev.adrian.akar.component.container.AkarSpacer
 import dev.adrian.akar.component.feedback.AkarIcon
 import dev.adrian.akar.component.feedback.AkarIconBox
 import dev.adrian.akar.component.feedback.AkarLinearProgress
 import dev.adrian.akar.component.feedback.AkarSquircleProgress
 import dev.adrian.akar.component.input.AkarCurrencyField
+import dev.adrian.akar.component.input.AkarPickerField
 import dev.adrian.akar.component.input.AkarTextField
 import dev.adrian.akar.component.layout.AkarAppBar
 import dev.adrian.akar.component.layout.AkarScaffold
+import dev.adrian.akar.component.list.AkarLazyColumn
+import dev.adrian.akar.component.list.add
 import dev.adrian.akar.component.overlay.AkarDatePickerDialog
 import dev.adrian.akar.component.overlay.AkarDateValidators
 import dev.adrian.akar.core.theme.AkarTheme
@@ -83,15 +82,17 @@ fun App() {
                 )
             }
         ) { innerPadding ->
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding),
-                contentAlignment = Alignment.Center
+            AkarLazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = innerPadding.add(
+                    start = AkarTheme.spacing.medium,
+                    top = AkarTheme.spacing.medium,
+                    end = AkarTheme.spacing.medium
+                ),
+                verticalArrangement = Arrangement.spacedBy(AkarTheme.spacing.large),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
+                item {
                     AkarIconBox(
                         icon = AkarIcons.EmojiFoodBeverage,
                         contentDescription = null,
@@ -104,40 +105,63 @@ fun App() {
                             )
                         }
                     )
+                }
+                item {
                     AkarButton(
                         label = "Press me",
                         onClick = {  }
                     )
+                }
+                item {
                     AkarOutlinedButton(
                         label = "Press me",
                         onClick = {  }
                     )
+                }
+                item {
                     AkarIconButton(
                         icon = AkarIcons.Settings,
                         contentDescription = null,
                         onClick = {  }
                     )
+                }
+                item {
                     AkarLinearProgress(
                         progress = 0.75f,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = AkarTheme.spacing.large)
+                        modifier = Modifier.fillMaxWidth()
                     )
+                }
+                item {
                     AkarSquircleProgress(
                         progress = 0.6f
                     )
+                }
+                item {
                     AkarTextField(
                         state = rememberTextFieldState(),
                         label = "Username",
-                        modifier = Modifier.padding(horizontal = AkarTheme.spacing.medium),
                         placeholder = "Enter username"
                     )
-                    AkarSpacer(height = 24.dp)
+                }
+                item {
                     AkarCurrencyField(
                         state = rememberTextFieldState(),
                         onValueAsLongCent = {  },
-                        label = "Amount",
-                        modifier = Modifier.padding(horizontal = AkarTheme.spacing.medium)
+                        label = "Amount"
+                    )
+                }
+                item {
+                    AkarPickerField(
+                        value = "19 June 2026",
+                        label = "Date",
+                        onClick = {  },
+                        trailingIcon = {
+                            AkarIcon(
+                                icon = AkarIcons.DateRange,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
                     )
                 }
             }
