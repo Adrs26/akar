@@ -27,7 +27,8 @@ import dev.adrian.akar.component.feedback.AkarLinearProgress
 import dev.adrian.akar.component.feedback.AkarSquircleProgress
 import dev.adrian.akar.component.layout.AkarAppBar
 import dev.adrian.akar.component.layout.AkarScaffold
-import dev.adrian.akar.component.overlay.AkarAlertDialog
+import dev.adrian.akar.component.overlay.AkarDatePickerDialog
+import dev.adrian.akar.component.overlay.AkarDateValidators
 import dev.adrian.akar.core.theme.AkarTheme
 import dev.adrian.akar.icon.AkarIcons
 
@@ -129,12 +130,12 @@ fun App() {
         }
 
         if (isDialogShown) {
-            AkarAlertDialog(
-                text = "This is alert dialog. Understand?",
-                dismissLabel = "No",
-                confirmLabel = "Yes",
+            AkarDatePickerDialog(
+                dismissLabel = "Cancel",
+                confirmLabel = "Save",
                 onDismiss = { isDialogShown = false },
-                onConfirm = { isDialogShown = false }
+                onDateSelected = { isDialogShown = false },
+                selectableDates = AkarDateValidators.maxToday()
             )
         }
     }
