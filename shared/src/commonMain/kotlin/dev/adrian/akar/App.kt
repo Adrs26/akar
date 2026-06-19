@@ -21,10 +21,12 @@ import dev.adrian.akar.component.button.AkarButton
 import dev.adrian.akar.component.button.AkarFloatingActionButton
 import dev.adrian.akar.component.button.AkarIconButton
 import dev.adrian.akar.component.button.AkarOutlinedButton
+import dev.adrian.akar.component.container.AkarSpacer
 import dev.adrian.akar.component.feedback.AkarIcon
 import dev.adrian.akar.component.feedback.AkarIconBox
 import dev.adrian.akar.component.feedback.AkarLinearProgress
 import dev.adrian.akar.component.feedback.AkarSquircleProgress
+import dev.adrian.akar.component.input.AkarCurrencyField
 import dev.adrian.akar.component.input.AkarTextField
 import dev.adrian.akar.component.layout.AkarAppBar
 import dev.adrian.akar.component.layout.AkarScaffold
@@ -88,7 +90,6 @@ fun App() {
                 contentAlignment = Alignment.Center
             ) {
                 Column(
-                    verticalArrangement = Arrangement.spacedBy(AkarTheme.spacing.medium),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     AkarIconBox(
@@ -129,9 +130,14 @@ fun App() {
                         state = rememberTextFieldState(),
                         label = "Username",
                         modifier = Modifier.padding(horizontal = AkarTheme.spacing.medium),
-                        placeholder = "Enter username",
-                        isError = true,
-                        errorMessage = "Username cannot be empty"
+                        placeholder = "Enter username"
+                    )
+                    AkarSpacer(height = 24.dp)
+                    AkarCurrencyField(
+                        state = rememberTextFieldState(),
+                        onValueAsLongCent = {  },
+                        label = "Amount",
+                        modifier = Modifier.padding(horizontal = AkarTheme.spacing.medium)
                     )
                 }
             }
