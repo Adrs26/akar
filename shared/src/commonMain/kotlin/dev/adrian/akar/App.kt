@@ -26,6 +26,7 @@ import dev.adrian.akar.component.feedback.AkarSquircleProgress
 import dev.adrian.akar.component.input.AkarCurrencyField
 import dev.adrian.akar.component.input.AkarDisableField
 import dev.adrian.akar.component.input.AkarLabeledCheckbox
+import dev.adrian.akar.component.input.AkarLabeledRadioButton
 import dev.adrian.akar.component.input.AkarPickerField
 import dev.adrian.akar.component.input.AkarSwitch
 import dev.adrian.akar.component.input.AkarTextField
@@ -186,6 +187,14 @@ fun App() {
                         checked = checked,
                         onCheckedChange = { checked = it },
                         label = "This is checkbox",
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+                item {
+                    AkarLabeledRadioButton(
+                        selected = checked,
+                        onClick = { checked = !checked },
+                        label = "This is radio button",
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
