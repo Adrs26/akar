@@ -8,6 +8,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,6 +27,7 @@ import dev.adrian.akar.component.feedback.AkarLinearProgress
 import dev.adrian.akar.component.feedback.AkarSquircleProgress
 import dev.adrian.akar.component.layout.AkarAppBar
 import dev.adrian.akar.component.layout.AkarScaffold
+import dev.adrian.akar.component.overlay.AkarAlertDialog
 import dev.adrian.akar.core.theme.AkarTheme
 import dev.adrian.akar.icon.AkarIcons
 
@@ -31,6 +36,8 @@ import dev.adrian.akar.icon.AkarIcons
 fun App() {
     val icon = AkarIcons.rememberIcon()
     val filledIcon = AkarIcons.rememberIcon(fill = true)
+
+    var isDialogShown by remember { mutableStateOf(false) }
 
     AkarTheme(
         icon = icon
@@ -53,7 +60,7 @@ fun App() {
                         AkarIconButton(
                             icon = AkarIcons.Settings,
                             contentDescription = null,
-                            onClick = { }
+                            onClick = { isDialogShown = true }
                         )
                     },
                     textColor = AkarTheme.colors.primary
@@ -119,6 +126,16 @@ fun App() {
                     )
                 }
             }
+        }
+
+        if (isDialogShown) {
+            AkarAlertDialog(
+                text = "This is alert dialog. Understand?",
+                dismissLabel = "No",
+                confirmLabel = "Yes",
+                onDismiss = { isDialogShown = false },
+                onConfirm = { isDialogShown = false }
+            )
         }
     }
 }
