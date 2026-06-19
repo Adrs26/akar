@@ -23,6 +23,7 @@ import dev.adrian.akar.component.feedback.AkarIconBox
 import dev.adrian.akar.component.feedback.AkarLinearProgress
 import dev.adrian.akar.component.feedback.AkarSquircleProgress
 import dev.adrian.akar.component.input.AkarCurrencyField
+import dev.adrian.akar.component.input.AkarDisableField
 import dev.adrian.akar.component.input.AkarPickerField
 import dev.adrian.akar.component.input.AkarTextField
 import dev.adrian.akar.component.layout.AkarAppBar
@@ -162,6 +163,12 @@ fun App() {
                                 modifier = Modifier.size(20.dp)
                             )
                         }
+                    )
+                }
+                item {
+                    AkarDisableField(
+                        value = "20,000,000",
+                        label = "Amount"
                     )
                 }
             }
