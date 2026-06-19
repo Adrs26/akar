@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,6 +26,7 @@ import dev.adrian.akar.component.feedback.AkarSquircleProgress
 import dev.adrian.akar.component.input.AkarCurrencyField
 import dev.adrian.akar.component.input.AkarDisableField
 import dev.adrian.akar.component.input.AkarPickerField
+import dev.adrian.akar.component.input.AkarSwitch
 import dev.adrian.akar.component.input.AkarTextField
 import dev.adrian.akar.component.layout.AkarAppBar
 import dev.adrian.akar.component.layout.AkarScaffold
@@ -41,6 +43,7 @@ fun App() {
     val filledIcon = AkarIcons.rememberIcon(fill = true)
 
     var isDialogShown by remember { mutableStateOf(false) }
+    var checked by rememberSaveable { mutableStateOf(false) }
 
     AkarTheme(
         icon = icon
@@ -169,6 +172,12 @@ fun App() {
                     AkarDisableField(
                         value = "20,000,000",
                         label = "Amount"
+                    )
+                }
+                item {
+                    AkarSwitch(
+                        checked = checked,
+                        onCheckedChange = { checked = it }
                     )
                 }
             }

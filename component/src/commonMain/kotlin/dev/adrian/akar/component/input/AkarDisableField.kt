@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.adrian.akar.component.feedback.AkarIcon
 import dev.adrian.akar.core.theme.AkarTheme
+import dev.adrian.akar.icon.AkarIcons
 
 @Composable
 fun AkarDisableField(
@@ -37,7 +38,7 @@ fun AkarDisableField(
             textStyle = AkarTheme.typography.bodyStandard,
             trailingIcon = {
                 AkarIcon(
-                    icon = '\ue88d',
+                    icon = AkarIcons.Lock,
                     contentDescription = null,
                     modifier = Modifier.size(20.dp),
                     tint = AkarTheme.colors.onSurface.copy(alpha = 0.4f)

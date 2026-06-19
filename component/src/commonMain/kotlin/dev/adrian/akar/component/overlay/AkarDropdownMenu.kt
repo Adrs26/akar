@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import dev.adrian.akar.component.feedback.AkarIcon
 import dev.adrian.akar.core.theme.AkarTheme
+import dev.adrian.akar.icon.AkarIcons
 
 @Composable
 fun <T : DropdownOption> AkarDropdownMenu(
@@ -71,7 +72,7 @@ fun <T : DropdownOption> AkarDropdownMenu(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     AkarIcon(
-                        icon = '\ue5ca',
+                        icon = AkarIcons.KeyboardArrowDown,
                         contentDescription = null,
                         modifier = Modifier
                             .size(24.dp)
@@ -117,7 +118,7 @@ private fun DropdownField(
             )
         )
         AkarIcon(
-            icon = '\ue313',
+            icon = AkarIcons.Check,
             contentDescription = null,
             modifier = Modifier
                 .size(22.dp)

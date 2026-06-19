@@ -40,6 +40,7 @@ kotlin {
         }
         commonMain.dependencies {
             api(projects.core)
+            api(projects.icon)
 
             implementation(libs.compose.components.resources)
             implementation(libs.compose.foundation)
