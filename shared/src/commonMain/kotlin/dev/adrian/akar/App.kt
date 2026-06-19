@@ -25,6 +25,7 @@ import dev.adrian.akar.component.feedback.AkarLinearProgress
 import dev.adrian.akar.component.feedback.AkarSquircleProgress
 import dev.adrian.akar.component.input.AkarCurrencyField
 import dev.adrian.akar.component.input.AkarDisableField
+import dev.adrian.akar.component.input.AkarLabeledCheckbox
 import dev.adrian.akar.component.input.AkarPickerField
 import dev.adrian.akar.component.input.AkarSwitch
 import dev.adrian.akar.component.input.AkarTextField
@@ -178,6 +179,14 @@ fun App() {
                     AkarSwitch(
                         checked = checked,
                         onCheckedChange = { checked = it }
+                    )
+                }
+                item {
+                    AkarLabeledCheckbox(
+                        checked = checked,
+                        onCheckedChange = { checked = it },
+                        label = "This is checkbox",
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
             }
