@@ -17,7 +17,7 @@ fun AkarIconBox(
     icon: Char,
     contentDescription: String?,
     modifier: Modifier = Modifier,
-    iconColor: Color = AkarTheme.colors.onPrimary,
+    iconTint: Color = AkarTheme.colors.onPrimary,
     backgroundColor: Color = AkarTheme.colors.primary,
     supportingIcon: @Composable (BoxScope.() -> Unit)? = null
 ) {
@@ -33,7 +33,7 @@ fun AkarIconBox(
         AkarIcon(
             icon = icon,
             contentDescription = contentDescription,
-            tint = iconColor
+            tint = iconTint
         )
         supportingIcon?.let { iconContent ->
             Box(
