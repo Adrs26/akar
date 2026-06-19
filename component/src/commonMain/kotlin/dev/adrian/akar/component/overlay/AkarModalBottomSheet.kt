@@ -6,6 +6,7 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import dev.adrian.akar.component.button.AkarIconButton
 import dev.adrian.akar.component.layout.AkarAppBar
 import dev.adrian.akar.component.layout.AkarScaffold
 import dev.adrian.akar.core.theme.AkarTheme
@@ -17,7 +18,6 @@ fun AkarModalBottomSheet(
     sheetState: SheetState,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
-    navigationIcon: @Composable (() -> Unit)? = null,
     content: @Composable (PaddingValues) -> Unit
 ) {
     ModalBottomSheet(
@@ -31,7 +31,13 @@ fun AkarModalBottomSheet(
             topBar = {
                 AkarAppBar(
                     title = title,
-                    navigationIcon = navigationIcon
+                    navigationIcon = {
+                        AkarIconButton(
+                            icon = '\ue14c',
+                            contentDescription = null,
+                            onClick = onDismiss
+                        )
+                    }
                 )
             }
         ) { innerPadding ->
